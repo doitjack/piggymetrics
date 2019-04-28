@@ -32,3 +32,22 @@ http://39.107.253.90:800/
 注册 jack jackjack
 
  进入项目目录 docker-compose stop
+ 
+ /root/piggymetrics
+ 
+ [root@iz2ze6ix79aknuno6pski3z target]# ll
+ 总用量 48540
+-rw-r--r-- 1 root root    12620 4月  28 11:36 auth-service-1.0-SNAPSHOT.jar
+-rw-r--r-- 1 root root 49662554 4月  28 16:26 auth-service.jar
+drwxr-xr-x 3 root root     4096 4月  28 11:36 classes
+drwxr-xr-x 3 root root     4096 4月  28 11:36 generated-sources
+drwxr-xr-x 3 root root     4096 4月  28 11:36 generated-test-sources
+drwxr-xr-x 2 root root     4096 4月  28 11:36 maven-archiver
+drwxr-xr-x 3 root root     4096 4月  28 11:36 maven-status
+drwxr-xr-x 3 root root     4096 4月  28 11:36 test-classes
+[root@iz2ze6ix79aknuno6pski3z target]# pwd
+/root/piggymetrics/auth-service/target
+[root@iz2ze6ix79aknuno6pski3z target]# 
+
+mvn clean
+mvn package -DskipTests
