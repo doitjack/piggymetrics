@@ -1,0 +1,12 @@
+/usr/mongodb/bin/
+printenv  打印环境
+ssh root@39.107.253.90
+
+
+ 
+export CONFIG_SERVICE_PASSWORD=doitjack890
+export NOTIFICATION_SERVICE_PASSWORD=doitjack890
+export STATISTICS_SERVICE_PASSWORD=doitjack890
+export ACCOUNT_SERVICE_PASSWORD=doitjack890
+export MONGODB_PASSWORD=doitjack890
+
