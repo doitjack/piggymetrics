@@ -30,3 +30,5 @@ ps -ef | grep java
 
 http://39.107.253.90:800/
 注册 jack jackjack
+
+ 进入项目目录 docker-compose stop
