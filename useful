@@ -22,7 +22,7 @@ lsof -i :800
 ps -ef | grep java
 
  docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
- 
+  docker-compose -f docker-compose.dev.yml up
 0.0.0.0/0
 
 /usr/local/nginx/conf
