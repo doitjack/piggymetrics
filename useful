@@ -10,3 +10,11 @@ export STATISTICS_SERVICE_PASSWORD=doitjack890
 export ACCOUNT_SERVICE_PASSWORD=doitjack890
 export MONGODB_PASSWORD=doitjack890
 
+查看内存 free -mh
+清除buff/cache
+echo 1 > /proc/sys/vm/drop_caches 
+
+cd  /root/piggymetrics/mongodb
+
+lsof -i :800
+ps -ef | grep java
