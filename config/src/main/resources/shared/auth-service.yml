@@ -1,7 +1,8 @@
+#auth-mongodb
 spring:
   data:
     mongodb:
-      host: account-mongodb#auth-mongodb
+      host: account-mongodb
       username: user
       password: ${MONGODB_PASSWORD}
       database: piggymetrics

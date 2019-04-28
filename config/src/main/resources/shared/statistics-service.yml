@@ -6,11 +6,11 @@ security:
       accessTokenUri: http://auth-service:5000/uaa/oauth/token
       grant-type: client_credentials
       scope: server
-
+#statistics-mongodb
 spring:
   data:
     mongodb:
-      host: account-mongodb#statistics-mongodb
+      host: account-mongodb
       username: user
       password: ${MONGODB_PASSWORD}
       database: piggymetrics
