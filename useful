@@ -10,6 +10,8 @@ export STATISTICS_SERVICE_PASSWORD=doitjack890
 export ACCOUNT_SERVICE_PASSWORD=doitjack890
 export MONGODB_PASSWORD=doitjack890
 
+mvn package -DskipTests
+
 查看内存 free -mh
 清除buff/cache
 echo 1 > /proc/sys/vm/drop_caches 
@@ -18,3 +20,13 @@ cd  /root/piggymetrics/mongodb
 
 lsof -i :800
 ps -ef | grep java
+
+ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+ 
+0.0.0.0/0
+
+/usr/local/nginx/conf
+/usr/local/nginx/sbin/nginx -s reload
+
+http://39.107.253.90:800/
+注册 jack jackjack
