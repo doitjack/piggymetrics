@@ -41,19 +41,7 @@ http://39.107.253.90:800/
  
  /root/piggymetrics
  
- [root@iz2ze6ix79aknuno6pski3z target]# ll
- 总用量 48540
--rw-r--r-- 1 root root    12620 4月  28 11:36 auth-service-1.0-SNAPSHOT.jar
--rw-r--r-- 1 root root 49662554 4月  28 16:26 auth-service.jar
-drwxr-xr-x 3 root root     4096 4月  28 11:36 classes
-drwxr-xr-x 3 root root     4096 4月  28 11:36 generated-sources
-drwxr-xr-x 3 root root     4096 4月  28 11:36 generated-test-sources
-drwxr-xr-x 2 root root     4096 4月  28 11:36 maven-archiver
-drwxr-xr-x 3 root root     4096 4月  28 11:36 maven-status
-drwxr-xr-x 3 root root     4096 4月  28 11:36 test-classes
-[root@iz2ze6ix79aknuno6pski3z target]# pwd
-/root/piggymetrics/auth-service/target
-[root@iz2ze6ix79aknuno6pski3z target]# 
+ll /root/piggymetrics/auth-service/target 
 
 mvn clean
 mvn package -DskipTests
@@ -64,4 +52,4 @@ https://hub.docker.com/u/sqshq
 
 删除带有sqshq的id的镜像
 docker rmi $(docker images | grep "^sqshq" | awk "{print $3}")
-docker rmi $(docker images | grep "^piggymetrics" | awk "{print $3}")
+docker rmi $(docker images | grep "^doitjack" | awk "{print $3}")
