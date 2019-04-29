@@ -27,6 +27,7 @@ lsof -i :800
 ps -ef | grep java
 
  docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+ docker-compose -f docker-compose.yml up
   docker-compose -f docker-compose.dev.yml up
 0.0.0.0/0
 
@@ -63,3 +64,4 @@ https://hub.docker.com/u/sqshq
 
 删除带有sqshq的id的镜像
 docker rmi $(docker images | grep "^sqshq" | awk "{print $3}")
+docker rmi $(docker images | grep "^piggymetrics" | awk "{print $3}")
