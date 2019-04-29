@@ -60,3 +60,6 @@ https://www.javacodegeeks.com/2018/01/ci-cd-springboot-applications-using-travis
 https://www.jianshu.com/p/f200f6e2b041
 
 https://hub.docker.com/u/sqshq
+
+删除带有sqshq的id的镜像
+docker rmi $(docker images | grep "^sqshq" | awk "{print $3}")
