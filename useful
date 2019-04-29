@@ -56,3 +56,7 @@ drwxr-xr-x 3 root root     4096 4月  28 11:36 test-classes
 
 mvn clean
 mvn package -DskipTests
+https://www.javacodegeeks.com/2018/01/ci-cd-springboot-applications-using-travis-ci.html
+https://www.jianshu.com/p/f200f6e2b041
+
+https://hub.docker.com/u/sqshq
