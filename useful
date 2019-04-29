@@ -1,6 +1,10 @@
 /usr/mongodb/bin/
 printenv  打印环境
 ssh root@39.107.253.90
+docker account doitjack Doitjack890
+export DOCKER_EMAIL=33915663@qq.com
+export DOCKER_USER=doitjack
+export DOCKER_PASS=Doitjack890
 
 
  
