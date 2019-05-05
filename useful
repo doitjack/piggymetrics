@@ -57,3 +57,29 @@ docker rmi $(docker images | grep "^doitjack" | awk "{print $3}")
 docker ps
 docker ps -a
 docker rm $(docker ps -a -q)
+
+docker-compose -f  docker-compose-mongo.yml up  -d
+
+
+docker exec -it    /bin/bash
+cd /data/db
+sudo chmod -R 777   /data/db
+
+docker run -it -v /home/dock/Downloads:/usr/Downloads ubuntu64 /bin/bash
+ll /data/db
+
+mongodump -h localhost  -d piggymetrics -o  /data/db/bak
+
+mongodump -h localhost  -d piggymetrics -o  /data/db/bak  -u user -p doitjack890
+mongorestore -h localhost -d piggymetrics  <path>
+导入整个库
+mongorestore -h 127.0.0.1 -d testdb /data/db/testdb
+导入单个表
+mongoimport --host 127.0.0.1 --db testdb --collection mycol --file /data/db/testdb/mycol.json
+
+复制到容器中
+docker cp /opt/software/temp/test/test.txt 688e83c55129:/test/
+进入从容器复制文件到主机
+docker cp 997324e652f2:/data/db/bak /data/db/mongo
+
+在外面将容器内的文件移动到外面 容器id997324e652f2        docker cp 997324e652f2:/data/db/bak/piggymetrics  /data/db/mongo
