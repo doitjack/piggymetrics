@@ -17,7 +17,7 @@ function requestOauthToken(username, password) {
 		url: 'uaa/oauth/token',
 		datatype: 'json',
 		type: 'post',
-		headers: {'Authorization': 'Basic YnJvd3Nlcjo='},
+		headers: {'Authorization': 'Basic YnJvd3Nlcjo='},//browser: 的base64加密
 		async: false,
 		data: {
 			scope: 'ui',
@@ -35,7 +35,7 @@ function requestOauthToken(username, password) {
 	});
 
 	return success;
-}
+}  
 
 function getOauthTokenFromStorage() {
 	return localStorage.getItem('token');

@@ -1,5 +1,6 @@
 package com.piggymetrics.account.controller;
 
+import com.esotericsoftware.minlog.Log;
 import com.piggymetrics.account.domain.Account;
 import com.piggymetrics.account.domain.User;
 import com.piggymetrics.account.service.AccountService;
@@ -35,5 +36,13 @@ public class AccountController {
 	@RequestMapping(path = "/", method = RequestMethod.POST)
 	public Account createNewAccount(@Valid @RequestBody User user) {
 		return accountService.create(user);
+	}
+	@RequestMapping(path = "/testurl", method = RequestMethod.GET)
+	public Account testurl(@Valid @RequestBody User user) {
+		return accountService.create(user);
+	}  
+	@RequestMapping(path = "/test", method = RequestMethod.GET)
+	public void test() {
+		Log.info(this.toString());
 	}
 }

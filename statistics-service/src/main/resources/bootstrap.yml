@@ -1,9 +1,35 @@
+
+      
+security:
+  oauth2:
+    client:
+      clientId: statistics-service
+      clientSecret: doitjack890
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+    resource:
+      user-info-uri: http://auth-service:5000/uaa/users/current
+        
+#statistics-mongodb
 spring:
   application:
+  
     name: statistics-service
-  cloud:
-    config:
-      uri: http://config:8888
-      fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
+  rabbitmq:
+    host: 119.29.198.146  
+  data:
+    mongodb:
+      host: ${account-mongodb:39.107.253.90}
       username: user
+      password: doitjack890
+      database: piggymetrics
+      port: 26000
+
+server:
+  servlet:
+    context-path: /statistics
+  port: 7000
+
+rates:
+  url: https://api.exchangeratesapi.io      

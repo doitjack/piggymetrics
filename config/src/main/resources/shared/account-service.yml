@@ -10,7 +10,7 @@ security:
 spring:
   data:
     mongodb:
-      host: ${account-mongodb:39.107.253.90}
+      host: account-mongodb
       username: user
       password: ${MONGODB_PASSWORD}
       database: piggymetrics

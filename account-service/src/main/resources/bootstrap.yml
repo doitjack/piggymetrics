@@ -1,9 +1,58 @@
 spring:
   application:
     name: account-service
-  cloud:
-    config:
-      uri: http://config:8888
-      fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
+  rabbitmq:
+    host: ${rabbitmq:119.29.198.146}   
+  main:
+    allow-bean-definition-overriding: true
+    
+  data:
+    mongodb:
+      host: ${account-mongodb:39.107.253.90}
       username: user
+      password: ${MONGODB_PASSWORD:doitjack890}
+      database: piggymetrics
+      port: 27017
+      
+      
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:5000/uaa/users/current
+    client:
+      clientId: account-service
+      clientSecret: ${ACCOUNT_SERVICE_PASSWORD:doitjack890}
+      accessTokenUri: http://${auth-service:localhost}:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+
+  
+
+server:
+  servlet:
+    context-path: /accounts
+  port: 6000
+
+feign:
+  hystrix:
+    enabled: true      
+    
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+
+     

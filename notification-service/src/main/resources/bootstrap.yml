@@ -1,9 +1,80 @@
+
+      
+      
+security:
+  oauth2:
+    client:
+      clientId: notification-service
+      clientSecret: doitjack890
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+    resource:
+      user-info-uri: http://auth-service:5000/uaa/users/current    
+
+server:
+  servlet:
+    context-path: /notifications
+  port: 8000
+
+remind:
+  cron: 0 0 0 * * *
+  email:
+    text: "Hey, {0}! We''ve missed you here on PiggyMetrics. It''s time to check your budget statistics.\r\n\r\nCheers,\r\nPiggyMetrics team"
+    subject: PiggyMetrics reminder
+
+backup:
+  cron: 0 0 12 * * *
+  email:
+    text: "Howdy, {0}. Your account backup is ready.\r\n\r\nCheers,\r\nPiggyMetrics team"
+    subject: PiggyMetrics account backup
+    attachment: backup.json
+#notification-mongodb
 spring:
   application:
     name: notification-service
-  cloud:
-    config:
-      uri: http://config:8888
-      fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
+  rabbitmq:
+    host: ${rabbitmq:119.29.198.146}     
+  data:
+    mongodb:
+      host: ${account-mongodb:39.107.253.90}
       username: user
+      password: doitjack890
+      database: piggymetrics
+      port: 26000
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: dev-user
+    password: dev-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+          ssl:
+            enable: true
+      
+      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+
+
+  
+
+       
