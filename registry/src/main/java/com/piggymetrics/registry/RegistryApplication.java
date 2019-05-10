@@ -13,7 +13,6 @@ import com.msg.BaseResponse;
 public class RegistryApplication {
     
 	public static void main(String[] args) {
-		BaseResponse b=new BaseResponse();
 		SpringApplication.run(RegistryApplication.class, args);
 	}
 	
