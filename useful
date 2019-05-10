@@ -84,3 +84,5 @@ docker cp /opt/software/temp/test/test.txt 688e83c55129:/test/
 docker cp 997324e652f2:/data/db/bak /data/db/mongo
 
 在外面将容器内的文件移动到外面 容器id997324e652f2        docker cp 997324e652f2:/data/db/bak/piggymetrics  /data/db/mongo
+
+java -Xmx500m -jar /root/p/piggymetrics/registry/target/registry-0.0.1-SNAPSHOT.jar &
