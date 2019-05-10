@@ -16,5 +16,4 @@ public class RegistryApplication {
 		SpringApplication.run(RegistryApplication.class, args);
 	}
 	
-	
 }
