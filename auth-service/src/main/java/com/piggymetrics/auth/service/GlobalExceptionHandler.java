@@ -1,4 +1,4 @@
-package com.handler;
+package com.piggymetrics.auth.service;
 
 import javax.servlet.http.HttpServletResponse;
 

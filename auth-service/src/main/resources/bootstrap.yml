@@ -3,6 +3,9 @@ spring:
   
   rabbitmq:
     host: 119.29.198.146
+    port: ${RABBIT_MQ_PORT:5672}
+    username: ${RABBIT_MQ_USERNAME:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest}
   application:
     name: auth-service
   data:
@@ -33,7 +36,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://${registry:39.107.253.90}:8761/eureka/
+      defaultZone: http://${registry:localhost}:8761/eureka/
 
 security:
   oauth2:

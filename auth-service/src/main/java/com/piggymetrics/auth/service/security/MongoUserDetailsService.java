@@ -1,5 +1,6 @@
 package com.piggymetrics.auth.service.security;
 
+import com.exception.BaseException;
 import com.piggymetrics.auth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ public class MongoUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		return repository.findById(username).orElseThrow(()->new UsernameNotFoundException(username));
+		return repository.findById(username).orElseThrow(()->
+		new UsernameNotFoundException(username));
 	}
 }

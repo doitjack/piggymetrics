@@ -6,13 +6,13 @@ var global = {
 };
 
 /**
- * Oauth2
+ * Oauth2       login
  */
 
 function requestOauthToken(username, password) {
 
 	var success = false;
-
+console.log("requestOauthToken:username:"+username+",password"+password);
 	$.ajax({
 		url: 'uaa/oauth/token',
 		datatype: 'json',
@@ -26,6 +26,7 @@ function requestOauthToken(username, password) {
 			grant_type: 'password'
 		},
 		success: function (data) {
+			console.log("got:"+data);
 			localStorage.setItem('token', data.access_token);
 			success = true;
 		},
@@ -53,7 +54,7 @@ function getCurrentAccount() {
 
 	var token = getOauthTokenFromStorage();
 	var account = null;
-
+      
 	if (token) {
 		$.ajax({
 			url: 'accounts/current',

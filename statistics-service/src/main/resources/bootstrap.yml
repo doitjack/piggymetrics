@@ -13,18 +13,24 @@ security:
         
 #statistics-mongodb
 spring:
+
+  main:
+    allow-bean-definition-overriding: true
   application:
   
     name: statistics-service
   rabbitmq:
     host: 119.29.198.146  
+    port: ${RABBIT_MQ_PORT:5672}
+    username: ${RABBIT_MQ_USERNAME:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest}
   data:
     mongodb:
       host: ${account-mongodb:39.107.253.90}
       username: user
       password: doitjack890
       database: piggymetrics
-      port: 26000
+      port: 27017
 
 server:
   servlet:
@@ -33,3 +39,18 @@ server:
 
 rates:
   url: https://api.exchangeratesapi.io      
+  
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${registry:localhost}:8761/eureka/  

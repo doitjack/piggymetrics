@@ -1,3 +1,8 @@
+logging:
+ file: gateway.log
+ level:
+  root: ERROR
+  
 spring:
   application:
     name: gateway
@@ -30,7 +35,7 @@ zuul:
   routes:
     auth-service:
         path: /uaa/**
-        url: http://auth-service:5000
+        url: http://${auth-service:localhost}:5000
         stripPrefix: false
         sensitiveHeaders:
 
@@ -54,4 +59,16 @@ zuul:
 
 server:
   port: 4000
+  
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${registry:localhost}:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://${auth-service:localhost}:5000/uaa/users/current  
       

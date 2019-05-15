@@ -33,15 +33,22 @@ backup:
 spring:
   application:
     name: notification-service
+    spring:
   rabbitmq:
-    host: ${rabbitmq:119.29.198.146}     
+    host: ${rabbitmq:119.29.198.146}  
+    port: ${RABBIT_MQ_PORT:5672}
+    username: ${RABBIT_MQ_USERNAME:guest}
+    password: ${RABBIT_MQ_PASSWORD:guest} 
+  main:
+    allow-bean-definition-overriding: true
+      
   data:
     mongodb:
       host: ${account-mongodb:39.107.253.90}
       username: user
       password: doitjack890
       database: piggymetrics
-      port: 26000
+      port: 27017
   mail:
     host: smtp.gmail.com
     port: 465
@@ -72,7 +79,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://registry:8761/eureka/
+      defaultZone: http://${registry:localhost}:8761/eureka/
 
 
   

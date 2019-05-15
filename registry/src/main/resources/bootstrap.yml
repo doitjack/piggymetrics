@@ -1,3 +1,10 @@
+logging:
+ file: registry_.log
+ level:
+  root: ERROR
+     
+   
+    
 
 spring:
   application:
@@ -29,7 +36,7 @@ hystrix:
 
 
 
-#security:
-#  oauth2:
-#    resource:
-#      user-info-uri: http://auth-service:5000/uaa/users/current      
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://auth-service:5000/uaa/users/current      

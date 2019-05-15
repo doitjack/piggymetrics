@@ -36,7 +36,12 @@ public class UserController {
 		return principal;
 	}
 	   
-	
+	 //需要ROLE_ADMIN权限
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")  //
+    @RequestMapping("/hasAuthority")
+    public String hasAuthority (){
+        return "hasAuthority  you!";
+    }
 
 	@PreAuthorize("#oauth2.hasScope('server')")
 	@RequestMapping(method = RequestMethod.POST)

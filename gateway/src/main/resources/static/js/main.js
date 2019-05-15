@@ -867,6 +867,8 @@ function launchStatistic() {
 
 function jsonDataSave() {
     if (global.savePermit) {
+    	var oauthtoken=getOauthTokenFromStorage();
+    	console.log("oauthtoken:"+oauthtoken);
         $.ajax({
             url: 'accounts/current',
             datatype: 'json',

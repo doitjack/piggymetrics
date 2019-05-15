@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class AccountController {
@@ -42,7 +44,11 @@ public class AccountController {
 		return accountService.create(user);
 	}  
 	@RequestMapping(path = "/test", method = RequestMethod.GET)
-	public void test() {
+	public Map test() {
 		Log.info(this.toString());
+		 Map<String, Object> map = new HashMap<>();
+		    map.put("key1", "value1");
+		    map.put("key2", "value2");
+		return map;
 	}
 }

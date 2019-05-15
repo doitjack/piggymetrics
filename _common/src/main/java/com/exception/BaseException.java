@@ -1,8 +1,6 @@
 package com.exception;
 
-/**
- * Created by ace on 2017/9/8.
- */
+
 public class BaseException extends RuntimeException {
     private int status = 200;
 

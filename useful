@@ -1,3 +1,5 @@
+ git update-index --assume-unchanged /Users/jack/Documents/ny2/target/
+ 
 http://localhost:5000/uaa/users/t
 /usr/mongodb/bin/
 printenv  打印环境
@@ -86,3 +88,20 @@ docker cp 997324e652f2:/data/db/bak /data/db/mongo
 在外面将容器内的文件移动到外面 容器id997324e652f2        docker cp 997324e652f2:/data/db/bak/piggymetrics  /data/db/mongo
 
 java -Xmx500m -jar /root/p/piggymetrics/registry/target/registry-0.0.1-SNAPSHOT.jar &
+
+curl -H "Authorization: Bearer 48c5f27a-24f8-4298-b7da-5c77f3437efa" http://localhost:6000/accounts/test
+
+curl -H "Authorization: Basic YnJvd3Nlcjo="  -d "scope=ui&username=nana7&password=123456&grant_type=password"   -XPOST http://localhost:4000/uaa/oauth/token 
+{"access_token":"08e03c18-ac79-4241-9be0-32be4724b4b1","token_type":"bearer","refresh_token":"8a07d71e-648a-4253-a1ff-6807d9e11468","expires_in":43199,"scope":"ui"} 
+
+用户名密码 生成token
+curl -H "Authorization: Basic YnJvd3Nlcjo="  -d "scope=ui&username=nana7&password=123456&grant_type=password"   -XPOST http://localhost:4000/uaa/oauth/token 	
+
+48c5f27a-24f8-4298-b7da-5c77f3437efa
+
+
+
+ 
+ 查看该token的用户信息
+ curl -H "Authorization: Bearer abf0c8ee-9521-43af-8813-af 4b6265dca http://localhost:5000/uaa/users/current
+ {"authorities":[],"details":{"remoteAddress":"127.0.0.1","sessionId":null,"tokenValue":"abf0c8ee-9521-43af-8813-af94b6265dca","tokenType":"Bearer","decodedDetails":null},"authenticated":true,"userAuthentication":{"authorities":[],"details":{"grant_type":"password","scope":"ui","username":"nana7"},"authenticated":true,"principal":{"username":"nana7","password":"$2a$10$3.YXP6rfwL1gdgCWheUSteI75RnwDz9O1LJItGyKr1WN1k5ostOZ2","enabled":true,"authorities":null,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},"credentials":null,"name":"nana7"},"credentials":"","principal":{"username":"nana7","password":"$2a$10$3.YXP6rfwL1gdgCWheUSteI75RnwDz9O1LJItGyKr1WN1k5ostOZ2","enabled":true,"authorities":null,"accountNonExpired":true,"accountNonLocked":true,"credentialsNonExpired":true},"oauth2Request":{"clientId":"browser","scope":["ui"],"requestParameters":{"grant_type":"password","scope":"ui","username":"nana7"},"resourceIds":[],"authorities":[],"approved":true,"refresh":false,"redirectUri":null,"responseTypes":[],"extensions":{},"grantType":"password","refreshTokenRequest":null},"clientOnly":false,"name":"nana7"}
