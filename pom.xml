@@ -12,7 +12,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<!-- <relativePath/> --> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -44,7 +44,8 @@
 	</dependencyManagement>
 	
 	<modules>
-		<module>config</module>
+	 <module>_common</module>
+		<!-- <module>config</module> -->
 		<!-- <module>monitoring</module> -->
 		<!-- <module>registry</module> -->
 		<module>gateway</module>
@@ -54,18 +55,39 @@
 		<module>notification-service</module>
 		<!-- <module>turbine-stream-service</module> -->
 		<!--  <module>ace-common</module> -->
-		 <module>_common</module>
+		
 	</modules>
 
 <build>
       <plugins>
-		<plugin>
+		<!-- important ,  should disable  <plugin>
 		   <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-maven-plugin</artifactId>
 		   <configuration>
 		       <fork>true</fork>
 		   </configuration>
-		</plugin>
+		</plugin> -->
+		
+			
+
+
+		 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+                </configuration>
+            </plugin>
 
 
 	
