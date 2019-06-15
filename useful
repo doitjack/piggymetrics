@@ -1,3 +1,11 @@
+ 查看端口被什么程序占用
+ ss -lntpd | grep :443 
+ netstat -tnlp | grep :443
+ lsof -i tcp:22
+ 
+ 
+ 
+ 
  git update-index --assume-unchanged /Users/jack/Documents/ny2/target/
  
 http://localhost:5000/uaa/users/t

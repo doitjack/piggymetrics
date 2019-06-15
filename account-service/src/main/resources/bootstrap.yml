@@ -1,4 +1,34 @@
+
+spring.cloud.consul.host: 39.107.253.90
+spring.cloud.consul.port: 8500
+spring.cloud.consul.discovery.preferIpAddress: true
+spring.cloud.consul.discovery.instanceId: wy#${spring.application.name}:${spring.application.instance_id:${random.value}}
+spring.cloud.consul.discovery.health-check-path: /actuator/health
+spring.cloud.consul.discovery.health-check-interval: 15s
+
+
 spring:
+  cloud:
+      consul:
+       discovery:
+        tags: foo=bar
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 6s
+        catalog-services-watch-delay: 6000
+  profiles:
+        active: test
+#    redis:
+#        database: 0
+#        host: 119.29.198.146
+#        password: pwd
+#        pool:
+#         max-active: 8
+#         max-wait: -1
+#         max-idle: 8
+#         min-idle: 2
+#         timeout: 100000
+#    cache:
+#     type: redis          
   application:
     name: account-service
   rabbitmq:
@@ -49,12 +79,13 @@ hystrix:
           thread:
             timeoutInMilliseconds: 10000
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    serviceUrl:
-      defaultZone: http://${registry:localhost}:8761/eureka/
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://${registry:localhost}:8761/eureka/
 
 
 

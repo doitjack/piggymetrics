@@ -1,3 +1,10 @@
+spring.cloud.consul.host: 39.107.253.90
+spring.cloud.consul.port: 8500
+spring.cloud.consul.discovery.preferIpAddress: true
+spring.cloud.consul.discovery.instanceId: wy#${spring.application.name}:${spring.application.instance_id:${random.value}}
+spring.cloud.consul.discovery.health-check-path: /actuator/health
+spring.cloud.consul.discovery.health-check-interval: 15s
+
 
 spring:
   
@@ -31,12 +38,12 @@ hystrix:
           thread:
             timeoutInMilliseconds: 10000
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    serviceUrl:
-      defaultZone: http://${registry:localhost}:8761/eureka/
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://${registry:localhost}:8761/eureka/
 
 security:
   oauth2:
